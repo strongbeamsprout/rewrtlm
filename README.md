@@ -14,7 +14,7 @@ A rewrite simplified version of "lm/summary.lm" function in R
 ```
 # The safest way to install rewrtlm is to download the package rewrtlm.zip from GitHub, open the rewrtlm.Rproj, and input the following command:
 R CMD build rewrtlm-master/
-R CMD INSTALL rewrtlm-master/
+R CMD INSTALL lmrewrt_0.0.0.9000.tar.gz
 ```
 
 ## Usage
