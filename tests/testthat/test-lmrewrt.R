@@ -1,9 +1,10 @@
 test_that("lm.rewrt works", {
   expect_equal(lm.rewrt(mpg ~ cyl + hp, data = mtcars)$coefficients, lm(mpg ~ cyl + hp, data = mtcars)$coefficients)
-  y=c("a","c","d")
+  y = c("a","c","d")
   expect_error( lm.rewrt(y ~ c(1:3)) )
-
-  ##expect_equal(lm.rewrt(cars[-1,2] ~ cars[,1])$coefficients, lm(cars[-1,2] ~ cars[,1])$coefficients)
+  y = 1:3
+  x = matrix(NA, 3, 3)
+  expect_error( lm.rewrt(y ~ x) )
   expect_equal(lm.rewrt(mpg ~ cyl + hp, data = mtcars)$df.residual, lm(mpg ~ cyl + hp, data = mtcars)$df.residual)
   expect_equal(lm.rewrt(dist ~ speed, data = cars)$coefficients, lm(dist ~ speed, data = cars)$coefficients)
   expect_equal(lm.rewrt(dist ~ speed, data = cars)$df.residual, lm(dist ~ speed, data = cars)$df.residual)

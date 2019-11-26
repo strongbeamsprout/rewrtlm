@@ -30,16 +30,14 @@ lm.rewrt = function(formula, data, prt = FALSE) {
   cl = match.call()
   if ( hasArg(data) ) input.data = model.frame(formula, data)
   else input.data = model.frame(formula)
+  if ( nrow(input.data) == 0 || ncol(input.data) == 0 ) stop("empty input")
 
   y = input.data[,1]
   if ( !is.numeric(y) ) stop( "input values should be numeric" )
   x = as.matrix( input.data[,-1] )
   obs.name = rownames(input.data)
   var.name = colnames(input.data)[-1]
-#  if ( is.null(var.name) ) var.name = c("(Intercept)", paste0( "x", 1:ncol(x)) )
   var.name = c("(Intercept)", var.name)
-  if ( is.null(obs.name) ) obs.name = as.character( 1:nrow(x) )
-  if ( is.null(nrow(x)) || is.null(ncol(x)) ) stop("'x' must be a matrix")
   n = nrow(x)
   if ( ncol(x) == 0 ) {
     return(list(coefficients = numeric(), residuals = y,
