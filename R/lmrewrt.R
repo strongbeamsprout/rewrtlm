@@ -45,7 +45,6 @@ lm.rewrt = function(formula, data, prt = FALSE) {
     return(list(coefficients = coef, residuals = y,
                 fitted.values = 0 * y, rank = 0, df.residual = length(y)))
   }
-  if ( NROW(y) != n ) stop("incompatible dimensions")
   x = cbind(rep(1,nrow(x)),x)
   q = ncol(x)
   ssx = t(x) %*% x
