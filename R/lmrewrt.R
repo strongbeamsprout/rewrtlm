@@ -36,7 +36,7 @@ lm.rewrt = function(formula, data, prt = FALSE) {
   x = as.matrix( input.data[,-1] )
   obs.name = rownames(input.data)
   var.name = colnames(input.data)[-1]
-  if ( is.null(var.name) ) var.name = c("(Intercept)", paste0( "x", 1:ncol(x)) )
+#  if ( is.null(var.name) ) var.name = c("(Intercept)", paste0( "x", 1:ncol(x)) )
   var.name = c("(Intercept)", var.name)
   if ( is.null(obs.name) ) obs.name = as.character( 1:nrow(x) )
   if ( is.null(nrow(x)) || is.null(ncol(x)) ) stop("'x' must be a matrix")
