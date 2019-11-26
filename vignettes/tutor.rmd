@@ -65,9 +65,19 @@ for ( j in c("adj.r.squared", "coefficients", "correlation", "cov.unscaled", "fs
 }
 ```
 
-### test of efficiency of lmcpp/summary.lmcpp comparing to the original function (lm/summary.lm)
+### test of efficiency of lm.rewrt/summary.lm.rewrt comparing to the original function (lm/summary.lm)
 ```{r}
 microbenchmark(lm.rewrt(dist ~ speed, data = cars),lm(dist ~ speed, data = cars))
 microbenchmark(lm.rewrt(mpg ~ cyl + hp, data = mtcars),lm(mpg ~ cyl + hp, data = mtcars))
 ```
 
+### there is another Rcpp version that I wrote for realizing this regression fitting (https://github.com/strongbeamsprout/lmcpp), but the compilation situation seems to vary across different systems, so I encourage the users to download the source code and sourceCpp it as the following:
+```{r}
+#unzip the downloaded lmcpp-master.zip from the github website
+sourceCpp("lmcpp-master/src/lmCpp.cpp")
+library(lmcpp)
+fit.cpp = lmcpp(mpg ~ cyl + hp, data = mtcars, prt = TRUE)
+summ = summary.lmcpp(fit, correlation = TRUE, prt = TRUE)
+microbenchmark(lmcpp(dist ~ speed, data = cars),lm(dist ~ speed, data = cars))
+microbenchmark(lmcpp(mpg ~ cyl + hp, data = mtcars),lm(mpg ~ cyl + hp, data = mtcars))
+```
