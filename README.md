@@ -12,12 +12,13 @@ A rewrite simplified version of "lm/summary.lm" function in R
 ### Installing
 
 ```
-# The safest way to install lmcpp is to download the package lmcpp.zip from GitHub:
-install.packages("Downloads/lmcpp.zip")
+# The safest way to install lmcpp is to download the package lmcpp.zip from GitHub, open the lmrewrt.Rproj, and input the following command:
+R CMD build lmrewrt-master/
+R CMD INSTALL lmrewrt-master/
 ```
 
 ## Usage
-
+"lm.rewrt" is only a simple sub-function of the original "lm" built-in function which will only take input variable as numeric and run the regression analysis. "summary.lm.rewrt" is a more formated version of the output of "lm.rewrt" with more information (i.e. F-test and correlation table between coefficients) 
 ```
 #load the package
 library(rewrtlm)
