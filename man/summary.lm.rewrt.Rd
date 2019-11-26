@@ -7,7 +7,7 @@
 \method{summary}{lm.rewrt}(object, correlation = FALSE, prt = TRUE)
 }
 \arguments{
-\item{object}{the fitting results of "lmCpp".}
+\item{object}{the fitting results of "lm.rewrt".}
 
 \item{correlation}{logical; if TRUE, the correlation matrix of the estimated parameters is returned and printed.}
 
@@ -27,5 +27,5 @@ A list containing the following elements
         }
 }
 \description{
-Summarize the output of "lmCpp" function
+Summarize the output of "lm.rewrt" function
 }

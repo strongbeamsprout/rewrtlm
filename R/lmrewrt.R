@@ -95,9 +95,9 @@ lm.rewrt = function(formula, data, prt = FALSE) {
 
 #'Summarizing Linear Model Fits
 #'
-#'Summarize the output of "lmCpp" function
+#'Summarize the output of "lm.rewrt" function
 #'
-#' @param object the fitting results of "lmCpp".
+#' @param object the fitting results of "lm.rewrt".
 #' @param correlation logical; if TRUE, the correlation matrix of the estimated parameters is returned and printed.
 #' @param prt logical; if TRUE, a summarized table will be computed to the screen
 #' @return A list containing the following elements
