@@ -1,5 +1,9 @@
 # rewrtlm
-A rewrite simplified version of "lm/summary.lm" function in R
+A rewrite simplified version of "lm/summary.lm" function in R  
+  <!-- badges: start -->
+  [![Travis build status](https://travis-ci.org/strongbeamsprout/rewrtlm.svg?branch=master)](https://travis-ci.org/strongbeamsprout/rewrtlm)
+  <!-- badges: end -->
+  
   
 ## Getting Started
 
