@@ -12,16 +12,16 @@ A rewrite simplified version of "lm/summary.lm" function in R
 ### Installing
 
 ```
-# The safest way to install lmrewrt is to download the package lmrewrt.zip from GitHub, open the lmrewrt.Rproj, and input the following command:
-R CMD build lmrewrt-master/
-R CMD INSTALL lmrewrt-master/
+# The safest way to install rewrtlm is to download the package rewrtlm.zip from GitHub, open the rewrtlm.Rproj, and input the following command:
+R CMD build rewrtlm-master/
+R CMD INSTALL rewrtlm-master/
 ```
 
 ## Usage
 "lm.rewrt" is only a simple sub-function of the original "lm" built-in function which will only take input variable as numeric and run the regression analysis. "summary.lm.rewrt" is a more formated version of the output of "lm.rewrt" with more information (i.e. F-test and correlation table between coefficients) 
 ```
 #load the package
-library(rewrtlm)
+library(lmrewrt)
 
 #load test data
 data(mtcars)
