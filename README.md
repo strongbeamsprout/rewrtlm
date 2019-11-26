@@ -3,7 +3,9 @@ A rewrite simplified version of "lm/summary.lm" function in R
   <!-- badges: start -->
   [![Travis build status](https://travis-ci.org/strongbeamsprout/rewrtlm.svg?branch=master)](https://travis-ci.org/strongbeamsprout/rewrtlm)
   <!-- badges: end -->
-  
+  <!-- badges: start -->
+  [![Codecov test coverage](https://codecov.io/gh/strongbeamsprout/rewrtlm/branch/master/graph/badge.svg)](https://codecov.io/gh/strongbeamsprout/rewrtlm?branch=master)
+  <!-- badges: end -->
   
 ## Getting Started
 
