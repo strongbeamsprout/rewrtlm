@@ -1,0 +1,73 @@
+---
+title: "lmcpp_test - Homework 4 Test"
+output: html_document
+---
+
+This is an [RMarkdown](https://rmarkdown.rstudio.com/) notebook created with [RStudio](https://rstudio.com) to test Homework 4 of BIOSTAT625.
+
+---
+
+## Preambles
+
+### Install the package and the benchmarking package for efficiency check
+```{r}
+install.packages('lmrewrt.tar.gz',repos=NULL)
+install.packages("microbenchmark")
+```
+
+### Load the package.
+```{r}
+library(lmrewrt)
+library("microbenchmark")
+```
+
+### Check the help files
+```{r}
+help(lm.rewrt)
+help(summary.lm.rewrt)
+```
+
+### load test input data1
+```{r}
+data(cars)
+```
+
+### create a simple linear model and summarize the regression output
+```{r}
+fit1 = lm.rewrt(dist ~ speed, data = cars, prt = TRUE)
+summ1 = summary.lm.rewrt(fit1, correlation = TRUE, prt = TRUE)
+```
+
+### load test input data2
+```{r}
+data(mtcars)
+```
+
+### create a multiple linear model and summarize the regression output
+```{r}
+fit2 = lm.rewrt(mpg ~ cyl + hp, data = mtcars, prt = TRUE)
+summ2 = summary.lm.rewrt(fit2, correlation = TRUE, prt = TRUE)
+```
+
+### test of correctness of lmcpp/summary.lmcpp comparing to the original function (lm/summary.lm)
+```{r}
+fit.lm1 = lm(dist ~ speed, data = cars)
+fit.lm2 = lm(mpg ~ cyl + hp, data = mtcars)
+fit.summ1 = summary(fit.lm1, correlation = TRUE)
+fit.summ2 = summary(fit.lm2, correlation = TRUE) 
+for ( i in c("coefficients","df.residual","fitted.values","residuals") ) {
+  print( all.equal(fit1[[i]], fit.lm1[[i]]) )
+  print( all.equal(fit2[[i]], fit.lm2[[i]]) )
+}
+for ( j in c("adj.r.squared", "coefficients", "correlation", "cov.unscaled", "fstatistic", "r.squared", "residuals", "sigma") ) {
+  print( all.equal(summ1[[j]],fit.summ1[[j]]))
+  print( all.equal(summ2[[j]],fit.summ2[[j]]))
+}
+```
+
+### test of efficiency of lmcpp/summary.lmcpp comparing to the original function (lm/summary.lm)
+```{r}
+microbenchmark(lm.rewrt(dist ~ speed, data = cars),lm(dist ~ speed, data = cars))
+microbenchmark(lm.rewrt(mpg ~ cyl + hp, data = mtcars),lm(mpg ~ cyl + hp, data = mtcars))
+```
+
