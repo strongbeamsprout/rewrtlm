@@ -12,7 +12,7 @@ A rewrite simplified version of "lm/summary.lm" function in R
 ### Installing
 
 ```
-# The safest way to install lmcpp is to download the package lmcpp.zip from GitHub, open the lmrewrt.Rproj, and input the following command:
+# The safest way to install lmrewrt is to download the package lmrewrt.zip from GitHub, open the lmrewrt.Rproj, and input the following command:
 R CMD build lmrewrt-master/
 R CMD INSTALL lmrewrt-master/
 ```
