@@ -40,7 +40,9 @@ lm.rewrt = function(formula, data, prt = FALSE) {
   var.name = c("(Intercept)", var.name)
   n = nrow(x)
   if ( ncol(x) == 0 ) {
-    return(list(coefficients = numeric(), residuals = y,
+    coef = mean(y)
+    names(coef) = "(Intercept)"
+    return(list(coefficients = coef, residuals = y,
                 fitted.values = 0 * y, rank = 0, df.residual = length(y)))
   }
   if ( NROW(y) != n ) stop("incompatible dimensions")

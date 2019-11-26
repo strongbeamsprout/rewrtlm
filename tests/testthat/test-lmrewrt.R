@@ -5,7 +5,8 @@ test_that("lm.rewrt works", {
   y = 1:3
   x = matrix(NA, 3, 3)
   expect_error( lm.rewrt(y ~ x) )
-  expect_equal(lm.rewrt(mpg ~ cyl + hp, data = mtcars)$df.residual, lm(mpg ~ cyl + hp, data = mtcars)$df.residual)
+  expect_equal( lm.rewrt(y ~ NULL)$coefficients, lm(y ~ NULL)$coefficients )
+  expect_equal(lm.rewrt(mpg ~ cyl + hp, data = mtcars, prt = TRUE)$df.residual, lm(mpg ~ cyl + hp, data = mtcars)$df.residual)
   expect_equal(lm.rewrt(dist ~ speed, data = cars)$coefficients, lm(dist ~ speed, data = cars)$coefficients)
   expect_equal(lm.rewrt(dist ~ speed, data = cars)$df.residual, lm(dist ~ speed, data = cars)$df.residual)
   expect_equal(summary.lm.rewrt(lm.rewrt(mpg ~ cyl + hp, data = mtcars), correlation = TRUE, prt = TRUE)$correlation,
